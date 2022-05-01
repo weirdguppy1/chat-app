@@ -1,4 +1,4 @@
-import { db } from "./../firebase";
+import { db } from "../firebase";
 import { collection, doc } from "firebase/firestore";
 import { useDocumentData } from "react-firebase-hooks/firestore";
 
