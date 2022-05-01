@@ -18,6 +18,9 @@ const ChatInput = (props: Props) => {
 
   const handleAddChat = (e: any) => {
     e.preventDefault();
+
+    if(message.trim() === "") return;
+    
     setMessage("");
     setLoading(true);
     addChat(props.roomId, message);
