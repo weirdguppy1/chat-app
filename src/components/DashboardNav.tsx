@@ -25,4 +25,4 @@ const DashboardNav = (props: Props) => {
   );
 };
 
-export default DashboardNav;
+export default React.memo(DashboardNav);
