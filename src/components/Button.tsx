@@ -11,7 +11,7 @@ export const Button: React.FC<any> = (props) => {
 
   return (
     <button
-      className={`${className} px-3 py-2 text-white bg-blue-600 shadow-lg hover:shadow-md hover:bg-blue-500 transition-all duration-500 rounded-xl `}
+      className={`${className} px-3 py-2 text-black bg-white shadow-xl hover:shadow-md hover:bg-white transition-all duration-500 rounded-xl `}
       {...rest}
     >
       {children}

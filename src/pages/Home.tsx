@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
-import { Button } from "../components/Button";
-import { AuthContext, AuthProvider } from "../contexts/AuthContext";
+import { AuthContext } from "../contexts/AuthContext";
 import { ArrowDown, HappyIcon, FilterIcon } from "../components/Icons";
 
 type SectionProps = {
@@ -12,28 +11,16 @@ type SectionProps = {
 
 const FeatureSection = (props: SectionProps) => {
   return (
-    <div className="flex items-center w-full p-4 space-x-6">
-      {props.direction === "left" ? (
-        <>
-          <div className="flex flex-col items-start w-1/2 space-y-2">
-            <div className="p-2 text-lg text-white bg-gradient-to-r from-cyan-400 to-blue-400 rounded-xl">
-              <div className="w-1/2">{props.icon}</div>
-            </div>
-            <h1 className="text-3xl underline ">{props.title}</h1>
-            <p className="text-xl">{props.children}</p>
-          </div>
-        </>
-      ) : (
-        <>
-          <div className="flex flex-col items-start w-1/2 space-y-2">
-            <div className="p-2 text-lg text-white bg-gradient-to-r from-cyan-400 to-blue-400 rounded-xl">
-              <div className="w-1/2">{props.icon}</div>
-            </div>
-            <h1 className="text-3xl underline ">{props.title}</h1>
-            <p className="text-xl">{props.children}</p>
-          </div>
-        </>
-      )}
+    <div className="flex items-center p-4 space-x-6">
+      <div className="flex space-x-4 items-center sm:space-x-0 sm:flex-col sm:items-start sm:space-y-2 max-w-lg">
+        <div className="p-2 text-lg text-white bg-gradient-to-r from-cyan-400 to-blue-400 rounded-xl">
+          {props.icon}
+        </div>
+        <div className="flex flex-col space-y-4">
+          <h1 className="text-3xl underline ">{props.title}</h1>
+          <p className="text-md sm:text-lg md:text-xl">{props.children}</p>
+        </div>
+      </div>
     </div>
   );
 };
@@ -47,7 +34,9 @@ const Home = () => {
         <div className="text-white">
           <div className="flex flex-col items-center p-10 shadow-blue-500">
             <h1 className="text-5xl italic">Chateduu!</h1>
-            <p className="text-xl ">Chat rooms for students, free forever.</p>
+            <p className="text-md md:text-lg ">
+              Chat rooms for students, free forever.
+            </p>
             <button
               onClick={() => {
                 console.log("Hello");
@@ -62,13 +51,13 @@ const Home = () => {
         </div>
       </div>
       <div id="features" className="flex flex-col p-10 space-y-8 bg-white">
-        <h1 className="text-6xl">
+        <h1 className="text-4xl md:text-6xl">
           Crazy{" "}
           <span className="p-2 font-bold bg-yellow-300 rounded-xl ">
             Features
           </span>
         </h1>
-        <div className="flex flex-col items-center space-y-8">
+        <div className="flex flex-col space-y-8">
           <FeatureSection
             title="Simple."
             icon={<HappyIcon className="w-12 h-12" />}
@@ -83,8 +72,8 @@ const Home = () => {
             title="Language Filter."
             icon={<FilterIcon className="w-12 h-12 " />}
           >
-            You have to keep it family-friendly! The chat filter protects students
-            from seeing unwanted and unwelcomed profanity.
+            You have to keep it family-friendly! The chat filter protects
+            students from seeing unwanted and unwelcomed profanity.
           </FeatureSection>
         </div>
       </div>
