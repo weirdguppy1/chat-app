@@ -37,7 +37,7 @@ const Room = (props: Props) => {
   }
 
   return (
-    <div className="flex flex-col h-screen bg-gradient-to-r from-blue-600 to-cyan-500">
+    <div className="flex flex-col h-screen bg-gradient-to-r from-blue-900 to-cyan-700">
       <ChatMessages roomId={roomId} />
     </div>
   );
