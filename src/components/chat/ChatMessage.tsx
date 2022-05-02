@@ -29,7 +29,7 @@ const ChatMessage = (props: Props) => {
     <div className="flex items-center space-x-6">
       <div className="flex flex-col items-center space-y-1">
         <Tippy content={`${author.displayName}`}>
-          <img className="w-12 h-12 rounded-lg " src={author.photoURL} />
+          <img className="border-2 border-black w-12 h-12 rounded-xl" src={author.photoURL} />
         </Tippy>
       </div>
       <div className="px-4 py-2 text-xl text-black bg-white border-2 border-black rounded-xl ">
