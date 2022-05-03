@@ -35,7 +35,7 @@ const ChatMessage = (props: Props) => {
           />
         </Tippy>
       </div>
-      <div className="px-4 py-2 text-black bg-white border-2 border-gray-200 shadow-md shadow-gray-300 rounded-xl">
+      <div className="px-4 py-2 text-black bg-white border-2 border-gray-200 rounded-xl">
         {message}
       </div>
     </div>

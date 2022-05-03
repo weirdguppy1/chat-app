@@ -9,10 +9,11 @@ const Dashboard = () => {
 
   return (
     <div
-      className={`flex flex-col items-center justify-center h-screen p-2 space-y-6 font-sans bg-gradient-to-r from-cyan-500 to-blue-600 ${
+      className={`min-h-screen flex flex-col items-center justify-center p-2 space-y-6 font-sans bg-gradient-to-r from-cyan-500 to-blue-600 ${
         modalOpen ? "blur-lg" : null
       }`}
     >
+      <div className="mt-12" />
       <RoomsList />
       <DashboardNav />
       <RoomForm />
