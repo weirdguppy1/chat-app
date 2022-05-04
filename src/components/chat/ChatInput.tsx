@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import useUtils from "../../hooks/useUtils";
 import { Button } from "../Button";
+import Filter from "bad-words";
 
 type Props = {
   roomId: string;
@@ -19,11 +20,12 @@ const ChatInput = (props: Props) => {
   const handleAddChat = (e: any) => {
     e.preventDefault();
 
-    if (message.trim() === "") return;
+    const filter = new Filter();
 
+    if (message.trim() === "") return;
     setMessage("");
     setLoading(true);
-    addChat(props.roomId, message);
+    addChat(props.roomId, filter.clean(message));
     setLoading(false);
   };
 
