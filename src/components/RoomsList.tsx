@@ -48,13 +48,11 @@ const RoomSection = (props: RoomSectionProps) => {
     <div className="flex items-center space-x-2 w-full sm:w-[28rem] md:w-[36rem]">
       <div
         onClick={handleClick}
-        className="container flex flex-col w-full px-4 py-4 transition bg-white border-2 border-black cursor-pointer duration-250 rounded-xl hover:shadow-lg hover:shadow-white"
+        className="flex flex-col w-full px-4 py-4 transition bg-white border-2 border-black cursor-pointer word-break duration-250 rounded-xl hover:shadow-lg hover:shadow-white"
       >
-        <div className="flex items-center justify-between">
-          <h1 className="text-2xl italic">{data?.name}</h1>
-        </div>
+        <h1 className="text-lg italic md:text-3xl">{data?.name}</h1>
         {/* <p className="text-md">Members: {data?.members.length}</p> */}
-        <p className="font-bold text-md ">Code: {data?.id}</p>
+        <p className="text-sm font-bold md:text-xl">Code: {data?.id}</p>
       </div>
       <button disabled={loading} onClick={handleDelete}>
         <TrashIcon className="w-8 h-8 text-white" />

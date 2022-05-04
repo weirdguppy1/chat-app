@@ -49,16 +49,18 @@ const ChatMessages = (props: Props) => {
 
   return (
     <div className="flex flex-col items-start h-full p-2 space-y-8 text-white">
-      <div className="flex flex-col space-y-2 shadow-2xl">
-        <h1 className="text-3xl italic font-bold">{value?.name}</h1>
-        <h1 className="text-lg italic ">Code: {props.roomId}</h1>
+      <div className="flex flex-col space-y-2">
+        <h1 className="w-screen text-3xl italic font-bold word-break">
+          {value?.name}
+        </h1>
+        <h2 className="text-lg italic">Code: {props.roomId}</h2>
         <Link to="/dashboard">
-          <button className="flex items-center w-full p-2 space-x-8 text-black bg-white rounded-b-xl">
+          <button className="flex items-center p-2 space-x-8 text-black bg-white rounded-b-xl">
             <BackArrow /> Go to dashboard.
           </button>
         </Link>
       </div>
-      <div className="w-full space-y-2 overflow-y-scroll h-5/6 hide-scrollbar">
+      <div className="w-full space-y-2 overflow-y-scroll h-5/6 hide-scrollbar ">
         {value?.messages.map((message: any) => {
           return (
             <ChatMessage

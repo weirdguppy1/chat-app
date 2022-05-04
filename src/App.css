@@ -7,3 +7,7 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+.word-break {
+  word-wrap: break-word;
+}

@@ -22,6 +22,11 @@ const useUtils = () => {
   };
 
   const createRoom = async (name: string) => {
+    if (name.length > 20) {
+      toast.error("Name cannot be longer than 20 characters.");
+      return;
+    }
+
     const uniqueId = nanoid(5);
     const userDoc = await getDoc(ref("users", user?.uid || ""));
 
@@ -104,9 +109,6 @@ const useUtils = () => {
   };
 
   const deleteRoom = async (roomId: string) => {
-    // const data = await (await getDoc(ref("users", user?.uid || ""))).data()
-    // console.log(data?.rooms)
-
     await updateDoc(ref("users", user?.uid || ""), {
       rooms: arrayRemove(ref("rooms", roomId)),
     });
