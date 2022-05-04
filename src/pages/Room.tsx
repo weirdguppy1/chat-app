@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import ErrorPage from "./ErrorPage";
 import useUtils from "../hooks/useUtils";
 import ChatMessages from "../components/chat/ChatMessages";
+import { Toaster } from "react-hot-toast";
 
 type Props = {};
 
@@ -38,6 +39,7 @@ const Room = (props: Props) => {
 
   return (
     <div className="flex flex-col h-screen bg-gradient-to-r from-blue-900 to-cyan-700">
+      <Toaster position="top-right" />
       <ChatMessages roomId={roomId} />
     </div>
   );

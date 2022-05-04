@@ -45,10 +45,10 @@ const RoomSection = (props: RoomSectionProps) => {
   };
 
   return (
-    <div className="flex items-center space-x-2">
+    <div className="flex items-center space-x-2 w-full sm:w-[28rem] md:w-[36rem]">
       <div
         onClick={handleClick}
-        className="container flex flex-col px-4 py-4 transition bg-white border-2 border-black cursor-pointer w-full md:w-[20rem] lg:w-[28rem] duration-250 rounded-xl hover:shadow-lg hover:shadow-white"
+        className="container flex flex-col w-full px-4 py-4 transition bg-white border-2 border-black cursor-pointer duration-250 rounded-xl hover:shadow-lg hover:shadow-white"
       >
         <div className="flex items-center justify-between">
           <h1 className="text-2xl italic">{data?.name}</h1>

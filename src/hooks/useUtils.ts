@@ -12,6 +12,7 @@ import {
 } from "firebase/firestore";
 import { nanoid } from "nanoid";
 import { ChatRoomInterface } from "../types/firestore";
+import toast from "react-hot-toast";
 
 const useUtils = () => {
   const user = auth.currentUser;
@@ -22,9 +23,7 @@ const useUtils = () => {
 
   const createRoom = async (name: string) => {
     const uniqueId = nanoid(5);
-    const userDocumentExists = await (
-      await getDoc(ref("users", user?.uid || ""))
-    ).exists();
+    const userDoc = await getDoc(ref("users", user?.uid || ""));
 
     const defaultRoom: ChatRoomInterface = {
       messages: [],
@@ -33,13 +32,21 @@ const useUtils = () => {
       name: name,
     };
 
-    if (!userDocumentExists) {
+    if (!userDoc.exists()) {
       await setDoc(ref("users", user?.uid || ""), {
         rooms: [],
       });
     }
 
-    await setDoc(ref("rooms", uniqueId), defaultRoom);
+    const data = userDoc.data();
+    if (data?.rooms.length >= 3) {
+      toast.error("Maximum chat rooms reached.");
+      return;
+    }
+
+    await setDoc(ref("rooms", uniqueId), defaultRoom)
+      .then(() => toast.success("Created chat room! Enjoy!"))
+      .catch(() => toast.error("Error trying to create chat room."));
     await updateDoc(ref("rooms", uniqueId), {
       members: arrayUnion(ref("users", user?.uid || "")),
     });
@@ -69,6 +76,10 @@ const useUtils = () => {
     const messageId = nanoid(10);
 
     if (!roomId) return;
+    if (message.length >= 100) {
+      toast.error("Message too long.");
+      return;
+    }
 
     const chatUser = {
       displayName: user?.displayName,
@@ -100,7 +111,6 @@ const useUtils = () => {
       rooms: arrayRemove(ref("rooms", roomId)),
     });
     await deleteDoc(ref("rooms", roomId));
-    
   };
 
   const getMessages = async (roomId: string) => {

@@ -3,7 +3,6 @@ import { Button } from "./Button";
 import { Dialog } from "@headlessui/react";
 import useUtils from "../hooks/useUtils";
 import { useMisc } from "../contexts/MiscContext";
-import toast from "react-hot-toast";
 
 type Props = {};
 
@@ -26,9 +25,7 @@ const CreateRoomButton = (props: Props) => {
     e.preventDefault();
     if (!name.trim()) return;
     setName("");
-    createRoom(name.trim())
-      .then(() => toast.success("Created chat room! Enjoy!"))
-      .catch(() => toast.error("Error creating chat room."));
+    createRoom(name.trim());
     closeModal();
   };
 

@@ -13,7 +13,6 @@ const ChatInput = (props: Props) => {
   const { addChat } = useUtils();
 
   const handleMessageChange = (e: any) => {
-    if (e.target.value.length >= 40) return;
     setMessage(e.target.value);
   };
 
