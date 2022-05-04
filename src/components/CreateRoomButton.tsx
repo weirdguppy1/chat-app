@@ -3,6 +3,7 @@ import { Button } from "./Button";
 import { Dialog } from "@headlessui/react";
 import useUtils from "../hooks/useUtils";
 import { useMisc } from "../contexts/MiscContext";
+import toast from "react-hot-toast";
 
 type Props = {};
 
@@ -13,7 +14,7 @@ const CreateRoomButton = (props: Props) => {
   const { setModalOpen } = useMisc();
   function closeModal() {
     setIsOpen(false);
-    setModalOpen(false)
+    setModalOpen(false);
   }
 
   function openModal() {
@@ -25,7 +26,10 @@ const CreateRoomButton = (props: Props) => {
     e.preventDefault();
     if (!name.trim()) return;
     setName("");
-    createRoom(name.trim());
+    createRoom(name.trim())
+      .then(() => toast.success("Created chat room! Enjoy!"))
+      .catch(() => toast.error("Error creating chat room."));
+    closeModal();
   };
 
   return (
@@ -42,8 +46,10 @@ const CreateRoomButton = (props: Props) => {
           "fixed inset-0 z-10 flex items-center justify-center overflow-y-auto"
         }
       >
-        <div className="flex flex-col px-4 py-8 text-center text-white bg-blue-500 w-96 h-96 rounded-xl">
-          <Dialog.Title className="text-3xl ">Create Room.</Dialog.Title>
+        <div className="flex flex-col items-center justify-center w-screen h-screen px-4 py-8 text-center text-white bg-gradient-to-tr from-cyan-500 to-blue-600">
+          <Dialog.Title className="font-serif text-5xl">
+            Create Room.
+          </Dialog.Title>
           <div className="flex flex-col items-center mt-10">
             <form
               onSubmit={handleCreateRoom}
@@ -56,9 +62,7 @@ const CreateRoomButton = (props: Props) => {
                 className="px-2 py-1 text-black border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-300"
               />
               <div className="flex items-center space-x-4 ">
-                <Button type="submit" className="text-white bg-green-500">
-                  Create Room.
-                </Button>
+                <Button type="submit">Create Room.</Button>
                 <button className="underline" onClick={closeModal}>
                   Cancel.
                 </button>

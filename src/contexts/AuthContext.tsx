@@ -70,7 +70,6 @@ export function AuthProvider({ children }: Props) {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
       setLoading(false);
-      console.log(user);
       if (user) {
         navigate("/dashboard");
       }

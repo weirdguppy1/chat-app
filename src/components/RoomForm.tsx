@@ -18,8 +18,8 @@ const RoomForm = (props: Props) => {
   };
 
   return (
-    <div className="flex flex-col items-center p-10 space-y-12 border-2 border-black rounded-xl shadow-xl text-white bg-gradient-to-tr from-fuchsia-500  to-violet-500">
-      <h1 className="text-5xl italic">Join a room.</h1>
+    <div className="flex flex-col items-center p-10 space-y-12 text-white border-2 border-black shadow-xl rounded-xl bg-gradient-to-tr from-fuchsia-500 to-violet-500">
+      <h1 className="font-serif text-5xl">Join a room.</h1>
       <form onSubmit={handleSubmit} className="flex flex-col space-y-2">
         <label>Room Code:</label>
         <input

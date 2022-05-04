@@ -47,10 +47,6 @@ const ChatMessages = (props: Props) => {
     return <div>Error loading chat messages...</div>;
   }
 
-  if (value) {
-    console.log(value);
-  }
-
   return (
     <div className="flex flex-col items-start h-full p-2 space-y-8 text-white">
       <div className="flex flex-col space-y-2 shadow-2xl">

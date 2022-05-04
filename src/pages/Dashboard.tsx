@@ -1,4 +1,5 @@
 import React from "react";
+import { Toaster } from "react-hot-toast";
 import DashboardNav from "../components/DashboardNav";
 import RoomForm from "../components/RoomForm";
 import RoomsList from "../components/RoomsList";
@@ -13,6 +14,7 @@ const Dashboard = () => {
         modalOpen ? "blur-lg" : null
       }`}
     >
+      <Toaster position="top-right"/>
       <div className="mt-12" />
       <RoomsList />
       <DashboardNav />

@@ -73,8 +73,8 @@ const useUtils = () => {
     const chatUser = {
       displayName: user?.displayName,
       uid: user?.uid,
-      photoURL: user?.photoURL
-    }
+      photoURL: user?.photoURL,
+    };
 
     const newMessage: MessageType = {
       message: message,
@@ -89,18 +89,18 @@ const useUtils = () => {
 
   const chatRoomExists = async (roomId: string) => {
     const document = await getDoc(ref("rooms", roomId));
-    if (document.exists()) {
-      return true;
-    }
-    return false;
+    return document.exists();
   };
 
   const deleteRoom = async (roomId: string) => {
-    await updateDoc(ref("users", user?.uid || ""), {
-      rooms: arrayRemove(ref("users", user?.uid || "")),
-    });
+    // const data = await (await getDoc(ref("users", user?.uid || ""))).data()
+    // console.log(data?.rooms)
 
+    await updateDoc(ref("users", user?.uid || ""), {
+      rooms: arrayRemove(ref("rooms", roomId)),
+    });
     await deleteDoc(ref("rooms", roomId));
+    
   };
 
   const getMessages = async (roomId: string) => {
@@ -110,7 +110,14 @@ const useUtils = () => {
     return doc.data();
   };
 
-  return { createRoom, deleteRoom, addChat, chatRoomExists, joinRoom, getMessages };
+  return {
+    createRoom,
+    deleteRoom,
+    addChat,
+    chatRoomExists,
+    joinRoom,
+    getMessages,
+  };
 };
 
 export default useUtils;
