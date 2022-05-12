@@ -31,7 +31,11 @@ const CreateRoomButton = (props: Props) => {
 
   return (
     <>
-      <Button type="button" onClick={openModal}>
+      <Button
+        className="text-white bg-gradient-to-r from-cyan-600 to-blue-600"
+        type="button"
+        onClick={openModal}
+      >
         Create Room.
       </Button>
 

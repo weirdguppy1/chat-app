@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useUtils from "../hooks/useUtils";
 import { Button } from "./Button";
+import DashboardNav from "./DashboardNav";
 
 type Props = {};
 
@@ -19,6 +20,7 @@ const RoomForm = (props: Props) => {
 
   return (
     <div className="flex flex-col items-center p-10 space-y-12 text-black bg-white border-2 border-black shadow-xl rounded-xl">
+      <DashboardNav />
       <h1 className="font-serif text-5xl">Join a room.</h1>
       <form onSubmit={handleSubmit} className="flex flex-col space-y-2">
         <label>Room Code:</label>
@@ -27,7 +29,12 @@ const RoomForm = (props: Props) => {
           value={code}
           className="px-2 py-1 text-black transition duration-500 border-2 border-black rounded-xl focus:ring-2 focus:ring-blue-300"
         />
-        <Button className="text-white bg-gradient-to-r from-cyan-500 to-blue-600" type="submit">Submit</Button>
+        <Button
+          className="text-white bg-gradient-to-r from-cyan-600 to-blue-600"
+          type="submit"
+        >
+          Submit
+        </Button>
       </form>
     </div>
   );

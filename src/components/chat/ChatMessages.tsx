@@ -52,7 +52,7 @@ const ChatMessages = (props: Props) => {
     <div className="flex flex-col items-start h-full space-y-8 text-white">
       <div className="flex flex-col w-full p-2 space-y-2 text-black bg-white border-b-2 border-black">
         <Link to="/dashboard">
-          <Button className="flex space-x-4 text-white bg-gradient-to-r from-cyan-500 to-blue-600 ">
+          <Button className="flex space-x-4 text-white bg-gradient-to-r from-cyan-600 to-blue-600 ">
             <BackArrow />{" "} Go to dashboard.
           </Button>
         </Link>

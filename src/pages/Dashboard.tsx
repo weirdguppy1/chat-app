@@ -17,7 +17,6 @@ const Dashboard = () => {
       <Toaster position="top-right"/>
       <div className="mt-12" />
       <RoomsList />
-      <DashboardNav />
       <RoomForm />
     </div>
   );
