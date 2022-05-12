@@ -36,14 +36,15 @@ const ChatInput = (props: Props) => {
     <form className="flex flex-col w-full space-y-2" onSubmit={handleAddChat}>
       <div className="flex items-center w-full space-x-2">
         <input
-          className="w-full px-2 py-3 text-lg text-black transition border-2 border-black rounded-lg duration-250 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          placeholder="Type a message..."
+          className="w-full px-2 py-3 text-sm text-black transition border-2 border-black rounded-xl duration-250 focus:outline-none focus:ring-2 focus:ring-blue-500"
           value={message}
           onChange={handleMessageChange}
           disabled={loading}
         />
-        <Button disabled={loading} className="py-3" type="submit">
+        {/* <Button disabled={loading} className="py-3" type="submit">
           Send
-        </Button>
+        </Button> */}
       </div>
 
       <div className="flex items-center space-x-2">

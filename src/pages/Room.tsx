@@ -36,9 +36,9 @@ const Room = (props: Props) => {
   if (!exists) {
     return <ErrorPage message="Chat room not found." />;
   }
-
+  
   return (
-    <div className="flex flex-col h-screen bg-gradient-to-r from-blue-900 to-cyan-700">
+    <div className="flex flex-col h-screen bg-gradient-to-r from-cyan-600 to-blue-600">
       <Toaster position="top-right" />
       <ChatMessages roomId={roomId} />
     </div>

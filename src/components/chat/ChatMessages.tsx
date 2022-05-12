@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import useDocData from "../../hooks/useDocData";
+import { Button } from "../Button";
 import ChatInput from "./ChatInput";
 import ChatMessage from "./ChatMessage";
 
@@ -48,19 +49,19 @@ const ChatMessages = (props: Props) => {
   }
 
   return (
-    <div className="flex flex-col items-start h-full p-2 space-y-8 text-white">
-      <div className="flex flex-col space-y-2">
-        <h1 className="text-3xl italic font-bold word-break">
-          {value?.name}
-        </h1>
-        <h2 className="text-lg italic">Code: {props.roomId}</h2>
+    <div className="flex flex-col items-start h-full space-y-8 text-white">
+      <div className="flex flex-col w-full p-2 space-y-2 text-black bg-white border-b-2 border-black">
         <Link to="/dashboard">
-          <button className="flex items-center p-2 space-x-8 text-black bg-white rounded-b-xl">
-            <BackArrow /> Go to dashboard.
-          </button>
+          <Button className="flex space-x-4 text-white bg-gradient-to-r from-cyan-500 to-blue-600 ">
+            <BackArrow />{" "} Go to dashboard.
+          </Button>
         </Link>
+        <h1 className="text-3xl font-bold word-break">{value?.name}</h1>
+        <h2 className="text-lg">
+          Code: <span className="underline">{props.roomId}</span>
+        </h2>
       </div>
-      <div className="w-full space-y-2 overflow-y-scroll h-5/6 hide-scrollbar ">
+      <div className="w-full p-2 space-y-2 overflow-y-scroll h-5/6 hide-scrollbar">
         {value?.messages.map((message: any) => {
           return (
             <ChatMessage
@@ -72,7 +73,7 @@ const ChatMessages = (props: Props) => {
         })}
         <div ref={messagesEndRef} />
       </div>
-      <div className="w-full h-1/6">
+      <div className="w-full p-2 h-1/6">
         <ChatInput roomId={props.roomId} />
       </div>
     </div>
