@@ -50,7 +50,7 @@ const ChatMessages = (props: Props) => {
   return (
     <div className="flex flex-col items-start h-full p-2 space-y-8 text-white">
       <div className="flex flex-col space-y-2">
-        <h1 className="w-screen text-3xl italic font-bold word-break">
+        <h1 className="text-3xl italic font-bold word-break">
           {value?.name}
         </h1>
         <h2 className="text-lg italic">Code: {props.roomId}</h2>
