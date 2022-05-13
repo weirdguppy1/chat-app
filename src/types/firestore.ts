@@ -1,9 +1,11 @@
-import { User, UserInfo } from "firebase/auth";
+import { User } from "firebase/auth";
+import { Timestamp } from "firebase/firestore";
 
 export type MessageType = {
   author: any;
   message: string;
   id: string;
+  timeStamp: Timestamp;
 };
 
 export interface ChatRoomInterface {

@@ -1,5 +1,5 @@
 import { getDoc } from "firebase/firestore";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import useDocData from "../hooks/useDocData";
 import { ChatRoomInterface } from "../types/firestore";
@@ -13,7 +13,7 @@ type RoomSectionProps = {
   room: any;
 };
 
-const RoomSection = (props: RoomSectionProps) => {
+const RoomSection = React.memo((props: RoomSectionProps) => {
   const [data, setData] = useState<ChatRoomInterface | null>(null);
   const [loading, setLoading] = useState(false);
 
@@ -48,18 +48,18 @@ const RoomSection = (props: RoomSectionProps) => {
     <div className="flex items-center space-x-2 w-full sm:w-[28rem] md:w-[36rem]">
       <div
         onClick={handleClick}
-        className="flex flex-col w-full px-4 py-4 transition bg-white border-2 border-black cursor-pointer word-break duration-250 rounded-xl hover:shadow-lg hover:shadow-white"
+        className="flex flex-col w-full px-4 py-6 transition bg-white border-2 border-black cursor-pointer word-break duration-250 rounded-xl hover:shadow-lg hover:shadow-white"
       >
-        <h1 className="text-lg italic md:text-3xl">{data?.name}</h1>
+        <h1 className="text-lg italic font-bold md:text-3xl">{data?.name}</h1>
         {/* <p className="text-md">Members: {data?.members.length}</p> */}
-        <p className="text-sm font-bold md:text-xl">Code: {data?.id}</p>
+        <p className="text-sm font-semibold md:text-xl">Code: {data?.id}</p>
       </div>
       <button disabled={loading} onClick={handleDelete}>
         <TrashIcon className="w-8 h-8 text-white" />
       </button>
     </div>
   );
-};
+});
 
 const RoomsList = () => {
   const { currentUser } = useAuth();
@@ -82,4 +82,4 @@ const RoomsList = () => {
   );
 };
 
-export default React.memo(RoomsList);
+export default RoomsList;

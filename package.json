@@ -12,6 +12,7 @@
     "@tippyjs/react": "^4.2.6",
     "bad-words": "^3.0.4",
     "dotenv": "^16.0.0",
+    "emoji-picker-react": "^3.5.1",
     "firebase": "^9.6.11",
     "nanoid": "^3.3.2",
     "react": "^18.0.0",

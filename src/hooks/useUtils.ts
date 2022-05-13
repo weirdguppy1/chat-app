@@ -9,6 +9,7 @@ import {
   arrayRemove,
   deleteDoc,
   getDoc,
+  Timestamp,
 } from "firebase/firestore";
 import { nanoid } from "nanoid";
 import { ChatRoomInterface } from "../types/firestore";
@@ -96,6 +97,7 @@ const useUtils = () => {
       message: message,
       id: messageId,
       author: chatUser,
+      timeStamp: Timestamp.fromDate(new Date())
     };
 
     await updateDoc(ref("rooms", roomId), {

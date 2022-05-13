@@ -53,7 +53,7 @@ const ChatMessages = (props: Props) => {
       <div className="flex flex-col w-full p-2 space-y-2 text-black bg-white border-b-2 border-black">
         <Link to="/dashboard">
           <Button className="flex space-x-4 text-white bg-gradient-to-r from-cyan-600 to-blue-600 ">
-            <BackArrow />{" "} Go to dashboard.
+            <BackArrow /> Go to dashboard.
           </Button>
         </Link>
         <h1 className="text-3xl font-bold word-break">{value?.name}</h1>
@@ -61,10 +61,11 @@ const ChatMessages = (props: Props) => {
           Code: <span className="underline">{props.roomId}</span>
         </h2>
       </div>
-      <div className="w-full p-2 space-y-2 overflow-y-scroll h-5/6 hide-scrollbar">
+      <div className="w-full p-2 space-y-4 overflow-y-scroll h-5/6 hide-scrollbar">
         {value?.messages.map((message: any) => {
           return (
             <ChatMessage
+              timeStamp={message.timeStamp}
               key={message.id}
               message={message.message}
               author={message.author}

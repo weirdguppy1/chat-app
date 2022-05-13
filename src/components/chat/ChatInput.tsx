@@ -32,6 +32,7 @@ const ChatInput = (props: Props) => {
     setMessage((message) => message + emoji);
   };
 
+
   return (
     <form className="flex flex-col w-full space-y-2" onSubmit={handleAddChat}>
       <div className="flex items-center w-full space-x-2">
@@ -54,12 +55,6 @@ const ChatInput = (props: Props) => {
         </Button>
         <Button onClick={() => handleReactionClick("😂")} type="button">
           😂
-        </Button>
-        <Button onClick={() => handleReactionClick("😎")} type="button">
-          😎
-        </Button>
-        <Button onClick={() => handleReactionClick("💀")} type="button">
-          💀
         </Button>
       </div>
     </form>
