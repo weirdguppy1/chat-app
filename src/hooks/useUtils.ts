@@ -82,7 +82,7 @@ const useUtils = () => {
     const messageId = nanoid(10);
 
     if (!roomId) return;
-    if (message.length >= 100) {
+    if (message.length >= 1000) {
       toast.error("Message too long.");
       return;
     }
@@ -97,7 +97,7 @@ const useUtils = () => {
       message: message,
       id: messageId,
       author: chatUser,
-      timeStamp: Timestamp.fromDate(new Date())
+      timeStamp: Timestamp.fromDate(new Date()),
     };
 
     await updateDoc(ref("rooms", roomId), {
@@ -124,6 +124,16 @@ const useUtils = () => {
     return doc.data();
   };
 
+  const deleteMessage = async (roomId: string, messageId: string) => {
+    let messages = await (await getDoc(ref("rooms", roomId))).data()?.messages;
+    messages = messages.filter((message: MessageType) => {
+      return message.id !== messageId;
+    });
+    await updateDoc(ref("rooms", roomId), {
+      messages: messages
+    }).then(() => toast.success("Deleted message!"));
+  };
+
   return {
     createRoom,
     deleteRoom,
@@ -131,6 +141,7 @@ const useUtils = () => {
     chatRoomExists,
     joinRoom,
     getMessages,
+    deleteMessage,
   };
 };
 

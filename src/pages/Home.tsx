@@ -41,7 +41,7 @@ const Home = () => {
   return (
     <div className="flex flex-col">
       <div id="intro" className="bg-gradient-to-r from-cyan-500 to-blue-600">
-        <div  className="flex flex-col items-center justify-center h-screen font-sans text-white">
+        <div className="flex flex-col items-center justify-center h-screen font-sans text-white">
           <div className="flex flex-col items-center p-10 shadow-blue-500">
             <h1 className="text-5xl italic">Chateduu!</h1>
             <p className="text-md md:text-lg">
@@ -124,13 +124,29 @@ const Home = () => {
           </span>{" "}
           Students
         </h1>
-        <h1 className="text-4xl underline md:text-6xl decoration-yellow-300">Together.</h1>
+        <h1 className="text-4xl underline md:text-6xl decoration-yellow-300">
+          Together.
+        </h1>
         <Button
           onClick={() => scrollTo("intro")}
           className="text-xl text-white bg-gradient-to-r from-blue-500 to-cyan-600"
         >
           Sign me up!
         </Button>
+      </div>
+      <div className="flex flex-col p-5 text-white bg-black">
+        <h1 className="text-lg">
+          Made by{" "}
+          <a
+            className="underline underline-offset-4 decoration-wavy decoration-sky-400"
+            target="_blank"
+            href="https://weirdguppy1.github.io"
+          >
+            Mark Fang
+          </a>
+          .
+        </h1>
+        <h1 className="text-lg">Show ❤️ love to my other projects.</h1>
       </div>
     </div>
   );

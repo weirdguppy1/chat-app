@@ -4,6 +4,7 @@ import useDocData from "../../hooks/useDocData";
 import { Button } from "../Button";
 import ChatInput from "./ChatInput";
 import ChatMessage from "./ChatMessage";
+import useSound from 'use-sound';
 
 type Props = {
   roomId: string;
@@ -69,6 +70,8 @@ const ChatMessages = (props: Props) => {
               key={message.id}
               message={message.message}
               author={message.author}
+              roomId={props.roomId}
+              messageId={message.id}
             />
           );
         })}

@@ -12,30 +12,23 @@ import { MiscProvider } from "./contexts/MiscContext";
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <AuthProvider>
-              <Home />
-            </AuthProvider>
-          }
-        />
-        <Route
-          path="/dashboard"
-          element={
-            <AuthProvider>
-              <MiscProvider>
+      <AuthProvider>
+        <MiscProvider>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route
+              path="/dashboard"
+              element={
                 <PrivateRoute redirectPath="/">
                   <Dashboard />
                 </PrivateRoute>
-              </MiscProvider>
-            </AuthProvider>
-          }
-        />
-        <Route path="/rooms/:roomId" element={<Room />} />
-        <Route path="*" element={<Error message="URL not found..." />} />
-      </Routes>
+              }
+            />
+            <Route path="/rooms/:roomId" element={<Room />} />
+            <Route path="*" element={<Error message="URL not found..." />} />
+          </Routes>
+        </MiscProvider>
+      </AuthProvider>
     </BrowserRouter>
   );
 }

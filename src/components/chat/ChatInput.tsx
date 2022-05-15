@@ -56,6 +56,9 @@ const ChatInput = (props: Props) => {
         <Button onClick={() => handleReactionClick("😂")} type="button">
           😂
         </Button>
+        <Button onClick={() => handleReactionClick("💀")} type="button">
+          💀
+        </Button>
       </div>
     </form>
   );

@@ -4,13 +4,12 @@ import { Dialog } from "@headlessui/react";
 import useUtils from "../hooks/useUtils";
 import { useMisc } from "../contexts/MiscContext";
 
-type Props = {};
-
-const CreateRoomButton = (props: Props) => {
+const CreateRoomButton = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [name, setName] = useState("");
   const { createRoom } = useUtils();
   const { setModalOpen } = useMisc();
+  
   function closeModal() {
     setIsOpen(false);
     setModalOpen(false);
