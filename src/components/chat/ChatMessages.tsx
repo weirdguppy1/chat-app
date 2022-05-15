@@ -4,7 +4,6 @@ import useDocData from "../../hooks/useDocData";
 import { Button } from "../Button";
 import ChatInput from "./ChatInput";
 import ChatMessage from "./ChatMessage";
-import useSound from 'use-sound';
 
 type Props = {
   roomId: string;
