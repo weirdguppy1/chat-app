@@ -5,8 +5,6 @@ import { getFirestore } from "firebase/firestore";
 export const provider = new GoogleAuthProvider();
 
 
-console.log(import.meta.env.apiKey)
-
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_apiKey,
 
