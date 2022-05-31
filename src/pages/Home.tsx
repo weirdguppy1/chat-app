@@ -43,7 +43,7 @@ const Home = () => {
       <div id="intro" className="bg-gradient-to-r from-cyan-500 to-blue-600">
         <div className="flex flex-col items-center justify-center h-screen font-sans text-white">
           <div className="flex flex-col items-center p-10 shadow-blue-500">
-            <h1 className="text-5xl italic">Crossroad</h1>
+            <h1 className="text-5xl italic">Chateduu!</h1>
             <p className="text-md md:text-lg">
               Chat rooms for students, free forever.
             </p>
